@@ -64,7 +64,7 @@ def es_texto_valido(valor):
 
 ventana = tk.Tk()
 ventana.geometry("520x500")
-ventana.title("Formulario Vr.01")
+ventana.title("Formulario Vr.02")
 
 var_genero = tk.IntVar()
 
