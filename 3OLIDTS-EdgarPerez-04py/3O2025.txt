@@ -1,0 +1,14 @@
+Nombres: Edgar
+Apellidos: Perez
+Edad: 19 anos
+Estatura: 1.70
+Telefono: 39498312
+Genero: Hombre
+
+Nombres: edgar
+Apellidos: perez
+Edad: 19 anos
+Estatura: 1.70
+Telefono: 9611246372
+Genero: Hombre
+
