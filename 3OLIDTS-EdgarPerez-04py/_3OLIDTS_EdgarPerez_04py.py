@@ -19,7 +19,7 @@ def insertaRegistro (nombre, apellido, edad, estatura, telefono, genero):
       conexion.commit()
       cursor.close()
       conexion.close()
-      messagebox.showerror("Insercion correcta","Datos gaurdados con exito")
+      messagebox.showinfo("Insercion correcta","Datos gaurdados con exito")
 
     except mysql.connector.Error as err:
         messagebox.showerror("Error en la conexion en la base de datos,",f"Error al insertar datos: {err}")

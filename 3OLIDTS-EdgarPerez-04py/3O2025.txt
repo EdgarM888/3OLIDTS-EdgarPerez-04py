@@ -54,3 +54,10 @@ Estatura: 1.69
 Telefono: 9611246372
 Genero: Hombre
 
+Nombres: Carlos
+Apellidos: Chavez
+Edad: 28 anos
+Estatura: 1.85
+Telefono: 1284375940
+Genero: Hombre
+
