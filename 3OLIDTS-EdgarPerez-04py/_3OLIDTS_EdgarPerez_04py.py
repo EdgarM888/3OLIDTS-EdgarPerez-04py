@@ -1,10 +1,33 @@
 import tkinter as tk
 from tkinter import messagebox
 import re
+import mysql.connector
+
+def insertaRegistro (nombre, apellido, edad, estatura, telefono, genero):
+    try:
+      conexion = mysql.connector.Connect(
+          host="localhost", #127.0.0.1
+          user="root",
+          password="",
+          database="programacionavanzada",
+          port="3306"
+          )
+      cursor = conexion.cursor()
+      stringQuery = "INSERT INTO registros (Nombre, Apellido, Telefono, Estatura, Edad, Genero) VALUES (%s,%s,%s,%s,%s,%s)"
+      valores = nombre, apellido, telefono, estatura, edad, genero
+      cursor.execute(stringQuery, valores)
+      conexion.commit()
+      cursor.close()
+      conexion.close()
+      messagebox.showerror("Insercion correcta","Datos gaurdados con exito")
+
+    except mysql.connector.Error as err:
+        messagebox.showerror("Error en la conexion en la base de datos,",f"Error al insertar datos: {err}")
+
 
 def limpiar_campos():
     tbNombre.delete(0,tk.END)
-    tbApellidos.delete(0,tk.END)
+    tbApellido.delete(0,tk.END)
     tbEdad.delete(0,tk.END)
     tbEstatura.delete(0,tk.END)
     tbTelefono.delete(0,tk.END)
@@ -14,8 +37,8 @@ def borrar_fun():
     limpiar_campos()
 
 def guardar_valores():
-    nombres = tbNombre.get()
-    apellidos = tbApellidos.get()
+    nombre = tbNombre.get()
+    apellido = tbApellido.get()
     edad = tbEdad.get()
     estatura = tbEstatura.get()
     telefono = tbTelefono.get()
@@ -28,14 +51,15 @@ def guardar_valores():
 
     # Validar que los campos tengan el formato correcto 
     if (es_entero_valido(edad) and es_decimal_valido(estatura) and es_entero_valido_de_10_digitos(telefono) and 
-        es_texto_valido(nombres) and es_texto_valido(apellidos)):
+        es_texto_valido(nombre) and es_texto_valido(apellido)):
 
-            datos = ("Nombres: " + nombres + "\n" + "Apellidos: " + apellidos + "\n" + "Edad: " + edad + " anos\n" 
+            datos = ("Nombres: " + nombre + "\n" + "Apellidos: " + apellido + "\n" + "Edad: " + edad + " anos\n" 
                 + "Estatura: " + estatura + "\n" + "Telefono: " + telefono + "\n" + "Genero: " + genero)
 
             with open ("3O2025.txt","a") as archivo:
                 archivo.write(datos + "\n\n")
 
+            insertaRegistro (nombre, apellido, edad, estatura, telefono, genero)
             messagebox.showinfo ("Informacion", "Datos gurdados con exito: \n\n" + datos)
 
             borrar_fun()
@@ -63,19 +87,19 @@ def es_texto_valido(valor):
     return bool(re.match("^[a-zA-Z\s]+$", valor))
 
 ventana = tk.Tk()
-ventana.geometry("520x500")
-ventana.title("Formulario Vr.02")
+ventana.geometry("300x400")
+ventana.title("Formulario Vr.03")
 
 var_genero = tk.IntVar()
 
-lbNombre = tk.Label(ventana, text = "Nombres: ")
+lbNombre = tk.Label(ventana, text = "Nombre: ")
 lbNombre.pack()
 tbNombre = tk.Entry()
 tbNombre.pack()
-lbApellidos = tk.Label(ventana, text = "Apellidos: ")
-lbApellidos.pack()
-tbApellidos = tk.Entry()
-tbApellidos.pack()
+lbApellido = tk.Label(ventana, text = "Apellido: ")
+lbApellido.pack()
+tbApellido = tk.Entry()
+tbApellido.pack()
 lbTelefono = tk.Label(ventana, text = "Telefono: ")
 lbTelefono.pack()
 tbTelefono = tk.Entry()

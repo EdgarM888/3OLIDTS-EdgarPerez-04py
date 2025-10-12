@@ -12,3 +12,45 @@ Estatura: 1.70
 Telefono: 9611246372
 Genero: Hombre
 
+Nombres: Edgar
+Apellidos: Perez
+Edad: 19 anos
+Estatura: 1.69
+Telefono: 9611246372
+Genero: Hombre
+
+Nombres: Edgar
+Apellidos: Perez
+Edad: 19 anos
+Estatura: 1.70
+Telefono: 9611246372
+Genero: Hombre
+
+Nombres: Edgar
+Apellidos: Perez
+Edad: 19 anos
+Estatura: 1.69
+Telefono: 9611246372
+Genero: Hombre
+
+Nombres: Edgar
+Apellidos: Perez
+Edad: 19 anos
+Estatura: 1.69
+Telefono: 9611246372
+Genero: Hombre
+
+Nombres: Edgar
+Apellidos: Perez
+Edad: 19 anos
+Estatura: 1.69
+Telefono: 9611246372
+Genero: Hombre
+
+Nombres: Edgar
+Apellidos: Perez
+Edad: 19 anos
+Estatura: 1.69
+Telefono: 9611246372
+Genero: Hombre
+
